@@ -36,7 +36,7 @@ public class NbpRestController {
             ),
             @ApiResponse(
                     responseCode = "404",
-                    description = "The data for the specified timeframe could not be found."
+                    description = "The data, for the specified timeframe, for example, could not be found."
             )
     })
     @Tag(name = "data-summary-avg")
