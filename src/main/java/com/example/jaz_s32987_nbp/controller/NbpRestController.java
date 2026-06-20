@@ -1,5 +1,7 @@
-package com.example.jaz_s32987_nbp;
+package com.example.jaz_s32987_nbp.controller;
 
+import com.example.jaz_s32987_nbp.entity.Root;
+import com.example.jaz_s32987_nbp.service.NbpService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,9 +22,13 @@ public class NbpRestController {
     @GetMapping("/{currency}/{from}/{to}")
     public ResponseEntity<String> getCurrencyAvgFromTo(
             @PathVariable String currency,
-            @PathVariable LocalDate from,
-            @PathVariable LocalDate to) {
-        nbpService.getCurrencyAvgFromTo();
+            @PathVariable LocalDate dateFrom,
+            @PathVariable LocalDate dateTo) {
 
+
+        Root root = nbpService.getRootByCurrencyAndFromTo(currency, dateFrom, dateTo);
+
+        nbpService.saveRequestInfo(currency, dateFrom, dateTo, result, timeOfRequest);
+        nbpService.getCurrencyAvgFromTo();
     }
 }

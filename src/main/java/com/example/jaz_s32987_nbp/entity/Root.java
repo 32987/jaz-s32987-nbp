@@ -1,4 +1,4 @@
-package com.example.jaz_s32987_nbp;
+package com.example.jaz_s32987_nbp.entity;
 
 import java.util.List;
 

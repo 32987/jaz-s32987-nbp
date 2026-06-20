@@ -1,4 +1,4 @@
-package com.example.jaz_s32987_nbp;
+package com.example.jaz_s32987_nbp.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
