@@ -1,9 +1,15 @@
 package com.example.jaz_s32987_nbp.entity;
 
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
+@Schema(description = "Contains information about an exchange rate.")
 public class Rate {
+    @Schema(description = "The rate's number.")
     private String no;
+    @Schema(description = "The rate's effective date")
     private String effectiveDate;
+    @Schema(description = "The rate's average.")
     private double mid;
 
     public String getNo() {

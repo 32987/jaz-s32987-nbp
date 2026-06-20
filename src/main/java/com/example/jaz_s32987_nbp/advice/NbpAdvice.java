@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.client.HttpServerErrorException;
 
 @RestControllerAdvice
 public class NbpAdvice {
@@ -18,9 +19,9 @@ public class NbpAdvice {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .body("Exception occured on request. Exception message: " + e.getLocalizedMessage());
     }
-    /*@ExceptionHandler(HttpClientErrorException.NotFound.class)
-    public ResponseEntity<String> handleHttpClientErrorExceptionNotFound(HttpClientErrorException.NotFound e) {
-        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(HttpServerErrorException.InternalServerError.class)
+    public ResponseEntity<String> handleHttpServerErrorExceptionInternalServerError(HttpClientErrorException.BadRequest e) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .body("Exception occured on request. Exception message: " + e.getLocalizedMessage());
-    }*/
+    }
 }

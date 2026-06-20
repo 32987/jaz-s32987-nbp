@@ -4,6 +4,7 @@ import com.example.jaz_s32987_nbp.entity.Root;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -24,8 +25,8 @@ public class NbpRequestSender {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         } catch (HttpClientErrorException.BadRequest e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-        }/* catch (HttpServerErrorException.ServiceUnavailable e) {
-            throw new ResponseStatusException(HttpStatus.GATEWAY_TIMEOUT);
-        }*/
+        } catch (HttpServerErrorException e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }
