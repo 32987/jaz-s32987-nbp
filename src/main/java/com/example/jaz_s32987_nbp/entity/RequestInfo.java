@@ -18,23 +18,23 @@ public class RequestInfo {
     private long id;
     @Schema(description = "Contains the currency.")
     private String currency;
-    @Schema(description = "The date, from which the analyzed period starts.")
+    @Schema(description = "The date, from which the analyzed period starts. (ISO 8601)")
     private LocalDate dateFrom;
-    @Schema(description = "The end date of the analyzed period.")
+    @Schema(description = "The end date of the analyzed period. (ISO 8601)")
     private LocalDate dateTo;
-    @Schema(description = "The calculated result of the request.")
-    private double result;
-    @Schema(description = "The creation time of the request.")
+    @Schema(description = "The calculated average of the currency values from the specified time period.")
+    private double average;
+    @Schema(description = "The creation time of the request. (ISO 8601)")
     private LocalDateTime timeOfRequest;
 
     public RequestInfo() {
 
     }
-    public RequestInfo(String currency, LocalDate dateFrom, LocalDate dateTo, double result, LocalDateTime timeOfRequest) {
+    public RequestInfo(String currency, LocalDate dateFrom, LocalDate dateTo, double average, LocalDateTime timeOfRequest) {
         this.currency = currency;
         this.dateFrom = dateFrom;
         this.dateTo = dateTo;
-        this.result = result;
+        this.average = average;
         this.timeOfRequest = timeOfRequest;
     }
 
@@ -54,8 +54,8 @@ public class RequestInfo {
         return dateTo;
     }
 
-    public double getResult() {
-        return result;
+    public double getAverage() {
+        return average;
     }
 
     public LocalDateTime getTimeOfRequest() {
@@ -78,8 +78,8 @@ public class RequestInfo {
         this.dateTo = dateTo;
     }
 
-    public void setResult(double result) {
-        this.result = result;
+    public void setAverage(double average) {
+        this.average = average;
     }
 
     public void setTimeOfRequest(LocalDateTime timeOfRequest) {
@@ -93,7 +93,7 @@ public class RequestInfo {
                 ", currency='" + currency + '\'' +
                 ", from=" + dateFrom +
                 ", to=" + dateTo +
-                ", result=" + result +
+                ", result=" + average +
                 ", timeOfRequest=" + timeOfRequest +
                 '}';
     }
