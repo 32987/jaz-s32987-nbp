@@ -1,3 +1,14 @@
 spring:
   application:
     name: jaz-s32987-nbp
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  datasource:
+    url: jdbc:mysql://localhost:3306/jaz_zal
+    username: root
+    password: ausydasudA%1924-::1e1e
+    driver-class-name: com.mysql.cj.jdbc.Driver
+springdoc:
+  api-docs:
+    path: /api-docs
